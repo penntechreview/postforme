@@ -40,13 +40,15 @@
           </tr>
         </thead>
         <tbody>
+          <%for(let i = 0; i < posts.length; i++){%>
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>Status here here here</td>
-            <td>Link here</td>
-            <td><a>Edit</a></td>
+            <td><%= posts[i].poster.firstname %></td>
+            <td><%= posts[i].postcontent %></td>
+            <td><%= posts[i].fbpostid ? 'Posted' : 'Pending' %></td>
+            <td><%= posts[i].articlelink.substring(26) %></td>
+            <td><a href="/edit/<%= posts[i].id%>">Edit</a></td>
           </tr>
+          <%}%>
         </tbody>
       </table>
     </div>

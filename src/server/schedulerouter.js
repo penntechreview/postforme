@@ -13,25 +13,6 @@ module.exports = function (DB) {
     })
   })
 
-  router.get('/fbpost', (req,res) => {
-    const postTextOptions = {  
-      method: 'POST',
-      uri: `https://graph.facebook.com/v2.11/me/feed`,
-      qs: {
-        access_token: req.user.accessToken,
-        message: 'Look at this awesome article',
-        link: 'https://penntechreview.com/read/paladindrone'
-      }
-    };
-    request(postTextOptions)
-    .then(fbRes => {
-      console.log(fbRes)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  })
-
   router.get('/schedulepost', (req,res) => {
     res.render('scheduler')
   })

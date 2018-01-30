@@ -3,6 +3,8 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/postforme', funct
   console.log('successfully connected to database')
 })
 
+mongoose.Promise = global.Promise
+
 const User = require('./models/User')
 const Post = require('./models/Post')
 
@@ -41,7 +43,7 @@ function createPost(articlelink, posttime, postcontent, userid){
 }
 
 function getAllPosts() {
-  return Post.find().populate('poster')
+  return Post.find().populate('poster').exec()
 }
 
 function postedPost(fbpostid, postid) {
