@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Penn Tech Review Scheduler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  </head>
+
+  <body>
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Penn Tech Review Post Scheduler
+        </h1>
+        <h2 class="subtitle">
+          Write and schedule posts for individual Facebook statuses
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container" style="width:60%"> 
+      <h1 class="title is-3">
+         ⏰ Schedule a Post
+      </h1>
+      <div class="field">
+        <label class="label">When should this be posted?</label>
+        <div class="control">
+          <input class="input" type="datetime-local" name="posttime" placeholder="Date and time" required>
+          <p class="help">Please enter in format mm/dd/yy hh:mm</p>
+        </div>
+      </div>
+      <br>
+      <div class="field">
+        <label class="label">What do you want to say?</label>
+        <div class="control">
+          <textarea name="postcontent" class="textarea" type="text" placeholder="Write a ~fun and personal~ short blurb about the article here!" rows="2" required></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Link to article</label>
+        <div class="control">
+          <input name="articlelink" class="input" type="text" placeholder="Link" required>
+        </div>
+      </div>
+      <br>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-success">Schedule!</button>
+        </div>
+        <div class="control">
+          <a class="button is-text" href="/">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  </body>
+</html>
