@@ -19,11 +19,6 @@ const postSchema = new Schema({
     ref: 'User',
     required: true
   },
-  posted: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
   fbpostid: String
 })
 

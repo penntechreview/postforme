@@ -56,11 +56,9 @@ module.exports = function (DB) {
         request(postTextOptions)
         .then(fbRes => {
           const {postid} = JSON.parse(fbRes)
-          return Post.findOne({poster: req.user.id})
+          DB.postedPost(fbpostid, created.id)
           .then(post => {
-            post.posted = true
-            post.fbpostid = postid
-            return post.save()
+            console.log(post)
           })
         })
         .then()

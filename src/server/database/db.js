@@ -44,6 +44,14 @@ function getAllPosts() {
   return Post.find().populate('poster')
 }
 
+function postedPost(fbpostid, postid) {
+  return Post.findById(postid)
+  .then(post => {
+    post.fbpostid = fbpostid
+    return post.save()
+  })
+}
+
 module.exports = {
   findOrCreateUser,
   findUserById,
