@@ -6,7 +6,7 @@ module.exports = function(DB, app) {
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: (process.env.PRODUCTION ? "https://young-spire-73497.herokuapp.com" : "http://localhost:3000") + "/auth/facebook/callback"
+    callbackURL: (process.env.PRODUCTION ? "http://postforme.penntechreview.com" : "http://localhost:3000") + "/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
       DB.findOrCreateUser(profile, accessToken, refreshToken)
