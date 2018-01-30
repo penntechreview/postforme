@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/postforme', function(){
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/postforme', function(){
   console.log('successfully connected to database')
 })
 
