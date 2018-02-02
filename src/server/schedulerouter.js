@@ -22,7 +22,6 @@ module.exports = function (DB) {
     const postdate = new Date(posttime)
     DB.createPost(articlelink, posttime, postcontent, req.user.id)
     .then(created => {
-      console.log(posttime)
       var dt = new Date(posttime)
       if(process.env.PRODUCTION) {
         dt.setTime(dt.getTime() + (5*60*60*1000))
