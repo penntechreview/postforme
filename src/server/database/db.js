@@ -58,5 +58,6 @@ module.exports = {
   findOrCreateUser,
   findUserById,
   createPost,
-  getAllPosts
+  getAllPosts,
+  postedPost
 }

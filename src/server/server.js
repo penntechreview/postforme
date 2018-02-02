@@ -33,7 +33,7 @@ app.use('/', schedulerouter(DB))
 
 
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PRODUCTION ? 8080 : 3000
 
 app.listen(PORT, () => {
   console.log('listening on port' + PORT)

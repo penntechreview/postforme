@@ -23,7 +23,9 @@ module.exports = function (DB) {
     DB.createPost(articlelink, posttime, postcontent, req.user.id)
     .then(created => {
       //jobs will continue to fire as long as 
-      const job = schedule.scheduleJob(postdate, function(){
+      var t = new Date();
+      t.setSeconds(t.getSeconds() + 5);
+      const job = schedule.scheduleJob(t, function(){
         //Post the content to facebook, then change the status of whether content has successfully posted
         const postTextOptions = {  
           method: 'POST',
@@ -36,16 +38,16 @@ module.exports = function (DB) {
         };
         request(postTextOptions)
         .then(fbRes => {
-          const {postid} = JSON.parse(fbRes)
+          const fbpostid = JSON.parse(fbRes).id
           DB.postedPost(fbpostid, created.id)
           .then(post => {
             console.log(post)
           })
         })
         .then()
-        console.log('just fired' + postcontent)
+        console.log('just fired: ' + created.id)
       })
-      res.send('Success!')
+      res.redirect('/')
     })
     .catch(error => {
       res.status(500).send(error)
