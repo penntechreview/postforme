@@ -24,7 +24,7 @@ module.exports = function (DB) {
     .then(created => {
       console.log(posttime)
       //jobs will continue to fire as long as
-      const job = schedule.scheduleJob(posttime, function(){
+      const job = schedule.scheduleJob(new Date(posttime), function(){
         //Post the content to facebook, then change the status of whether content has successfully posted
         const postTextOptions = {  
           method: 'POST',
