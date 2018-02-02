@@ -27,6 +27,7 @@ module.exports = function (DB) {
       if(process.env.PRODUCTION) {
         dt.setTime(dt.getTime() + (5*60*60*1000))
       }
+      console.log(dt)
       //jobs will continue to fire as long as
       const job = schedule.scheduleJob(dt, function(){
         //Post the content to facebook, then change the status of whether content has successfully posted
