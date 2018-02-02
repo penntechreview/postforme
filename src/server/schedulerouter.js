@@ -23,9 +23,7 @@ module.exports = function (DB) {
     DB.createPost(articlelink, posttime, postcontent, req.user.id)
     .then(created => {
       //jobs will continue to fire as long as 
-      var t = new Date();
-      t.setSeconds(t.getSeconds() + 5);
-      const job = schedule.scheduleJob(t, function(){
+      const job = schedule.scheduleJob(posttime, function(){
         //Post the content to facebook, then change the status of whether content has successfully posted
         const postTextOptions = {  
           method: 'POST',
