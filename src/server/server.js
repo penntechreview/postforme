@@ -52,7 +52,7 @@ DB.getAllPosts()
       request(postTextOptions)
       .then(fbRes => {
         const fbpostid = JSON.parse(fbRes).id
-        DB.postedPost(fbpostid, created.id)
+        DB.postedPost(fbpostid, post.id)
         .then(post => {
           console.log(post)
         })
@@ -61,7 +61,7 @@ DB.getAllPosts()
       .catch(error => {
 
       })
-      console.log('just fired: ' + created.id)
+      console.log('just fired: ' + post.id)
     })
   })
 })
