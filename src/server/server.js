@@ -54,7 +54,7 @@ request(postTextOptions)
 })
 .then()
 .catch(error => {
-
+  console.log(error)
 })
 
 // END TESTS
