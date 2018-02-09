@@ -37,7 +37,6 @@ DB.getAllPosts()
 .then(posts => {
   posts.forEach(post => {
     var dt = new Date(post.posttime)
-    console.log(post.postcontent.substring(0,10)," ", dt)
     const job = schedule.scheduleJob(dt, function(){
       //Post the content to facebook, then change the status of whether content has successfully posted
       const postTextOptions = {
