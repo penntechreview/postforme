@@ -54,7 +54,7 @@ function postedPost(fbpostid, postid) {
   })
 }
 
-Post.findById("5a7a4b0cf39c92048a52fd77")
+Post.findById("5a7a4a34f39c92048a52fd74")
 .then(post => {
   var dt = new Date()
   post.posttime = new Date(dt.setTime(dt.getTime() + 15 * 1000))
