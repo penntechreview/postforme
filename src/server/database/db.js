@@ -56,13 +56,16 @@ function postedPost(fbpostid, postid) {
 
 Post.findById("5a7aac2405f70a312c7beb77")
 .then(post => {
-  var dt = new Date(post.posttime)
+  var dt = new Date()
   post.posttime = new Date(dt.setTime(dt.getTime() + 60*1000))
   return post.save()
 })
 .then(post => {
   console.log(post)
 })
+
+
+
 
 module.exports = {
   findOrCreateUser,
