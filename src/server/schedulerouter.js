@@ -7,6 +7,9 @@ module.exports = function (DB) {
   router.get('/', (req,res) => {
     DB.getAllPosts()
     .then(posts => {
+      posts.sort((post1,post2) => {
+        return post1.posttime < post2.posttime;
+      })
       res.render('allposts', {
         posts
       })

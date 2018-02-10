@@ -31,6 +31,7 @@
             <th>Content</th>
             <th>Status</th>
             <th>Article link</th>
+            <th>Scheduled For</th>
             <th>Edit post</th>
           </tr>
         </thead>
@@ -41,6 +42,7 @@
             <td><%= posts[i].postcontent %></td>
             <td><%= posts[i].fbpostid ? 'Posted' : 'Pending' %></td>
             <td><%= posts[i].articlelink.substring(26) %></td>
+            <td><%= posts[i].posttime.toString().substring(0,21) %></td>
             <td><a href="/edit/<%= posts[i].id%>">Edit</a></td>
           </tr>
           <%}%>
